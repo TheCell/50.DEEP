@@ -44,7 +44,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (interactableObject)
         {
-
+            Debug.Log(interactableObject);
+            gameObject.GetComponent<PlayerInventory>().AddItem(interactableObject);
+            interactableObject.SendMessage("DoInteraction");
         }
     }
 
