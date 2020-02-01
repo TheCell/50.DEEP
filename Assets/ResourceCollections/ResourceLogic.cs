@@ -6,7 +6,9 @@ public class ResourceLogic : MonoBehaviour
 {
     public ResourceType typeOfResource;
     public DrillResources drillResources;
-    [SerializeField] private Sprite[] spritesForTypes;
+    [SerializeField] private Sprite[] spritesForPower;
+    [SerializeField] private Sprite[] spritesForBuildingMaterial;
+    [SerializeField] private Sprite[] spritesForWater;
     private SpriteRenderer spriteRenderer;
 
     public void SetResourceType(ResourceType type)
@@ -36,20 +38,21 @@ public class ResourceLogic : MonoBehaviour
     {
         switch (typeOfResource)
         {
-            case ResourceType.Zucker:
-                drillResources.Zucker = 1;
+            case ResourceType.Antrieb:
+                if (spriteRenderer.sprite.name == "Resource_Karies")
+                {
+                    drillResources.Antrieb = - 1;
+                }
+                else
+                {
+                    drillResources.Antrieb = 1;
+                }
                 break;
-            case ResourceType.Salat:
-                drillResources.Salat = 1;
+            case ResourceType.Baumaterial:
+                drillResources.Baumaterial = 1;
                 break;
-            case ResourceType.Kaugummi:
-                drillResources.Kaugummi = 1;
-                break;
-            case ResourceType.Kaese:
-                drillResources.Kaese = 1;
-                break;
-            case ResourceType.Caramel:
-                drillResources.Caramel = 1;
+            case ResourceType.Wasser:
+                drillResources.Wasser = 1;
                 break;
             default:
                 break;
@@ -60,25 +63,17 @@ public class ResourceLogic : MonoBehaviour
     {
         switch(typeOfResource)
         {
-            case ResourceType.Zucker:
+            case ResourceType.Antrieb:
                 // spriteRenderer.color = new Color(1f, 1f, 1f);
-                spriteRenderer.sprite = spritesForTypes[0];
+                spriteRenderer.sprite = spritesForPower[Random.Range(0, spritesForPower.Length)];
                 break;
-            case ResourceType.Salat:
+            case ResourceType.Baumaterial:
                 // spriteRenderer.color = new Color(0.3f, .88f, 0.3f);
-                spriteRenderer.sprite = spritesForTypes[1];
+                spriteRenderer.sprite = spritesForBuildingMaterial[Random.Range(0, spritesForBuildingMaterial.Length)];
                 break;
-            case ResourceType.Kaugummi:
+            case ResourceType.Wasser:
                 // spriteRenderer.color = new Color(0.89f, 0.37f, 0.77f);
-                spriteRenderer.sprite = spritesForTypes[2];
-                break;
-            case ResourceType.Kaese:
-                // spriteRenderer.color = new Color(0.87f, 0.87f, 0.12f);
-                spriteRenderer.sprite = spritesForTypes[3];
-                break;
-            case ResourceType.Caramel:
-                // spriteRenderer.color = new Color(0.9716981f, 0.6696121f, 0.3529281f);
-                spriteRenderer.sprite = spritesForTypes[4];
+                spriteRenderer.sprite = spritesForWater[Random.Range(0, spritesForWater.Length)];
                 break;
             default:
                 break;
