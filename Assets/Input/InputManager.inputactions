@@ -1,5 +1,5 @@
 {
-    "name": "Inputs",
+    "name": "InputManager",
     "maps": [
         {
             "name": "Player",
@@ -27,9 +27,9 @@
                     "name": "",
                     "id": "c78a9b61-8311-4683-b2f8-bcb86417eb38",
                     "path": "<Gamepad>/leftStick",
-                    "interactions": "",
+                    "interactions": "Press,Hold,Press(behavior=1)",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -38,7 +38,7 @@
                     "name": "WASD",
                     "id": "9804a307-4f46-41c9-a0a8-dc266df90c78",
                     "path": "2DVector",
-                    "interactions": "",
+                    "interactions": "Hold,Press(behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -51,7 +51,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -59,10 +59,10 @@
                 {
                     "name": "down",
                     "id": "6afbd4c8-9ee5-4d38-b3e4-0c2f7169dcef",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -70,10 +70,10 @@
                 {
                     "name": "left",
                     "id": "1b61d220-6a0e-4ac0-9530-f3412e43ac8c",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -81,10 +81,10 @@
                 {
                     "name": "right",
                     "id": "d098af8b-00f7-44d8-a1b4-9e83acc7d177",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -93,7 +93,7 @@
                     "name": "Arrows",
                     "id": "ab10a1e4-c00d-40b7-bd33-15fc799efadc",
                     "path": "2DVector",
-                    "interactions": "",
+                    "interactions": "Hold,Press(behavior=1),Press",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -106,7 +106,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -114,10 +114,10 @@
                 {
                     "name": "down",
                     "id": "503b3c8e-0f26-450a-b30b-3a9655e6c555",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -125,10 +125,10 @@
                 {
                     "name": "left",
                     "id": "535c21d0-17d0-4182-9282-cf316e5e78b4",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -136,10 +136,10 @@
                 {
                     "name": "right",
                     "id": "1ff1b280-a61a-4da3-a45a-66bdee513d4e",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -148,9 +148,9 @@
                     "name": "",
                     "id": "ce517ad8-aa8c-4e52-a8e8-0346abb3fd86",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -159,9 +159,9 @@
                     "name": "",
                     "id": "1087f0ad-bccc-4419-8c7c-362c1546b57c",
                     "path": "<XInputController>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,5 +169,33 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Keyboard and Mouse",
+            "bindingGroup": "Keyboard and Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
