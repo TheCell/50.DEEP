@@ -233,6 +233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28254b9fa0d977d4f824f1a2ad30ea91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundSprites:
+  - {fileID: 21300000, guid: 93944f1642aef4ab1b41bf0d1371f8b4, type: 3}
+  gridSize: 8
 --- !u!4 &1406134012
 Transform:
   m_ObjectHideFlags: 0
