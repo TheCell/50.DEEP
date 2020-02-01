@@ -5,9 +5,10 @@ public class InputHandling : MonoBehaviour
 {
     private InputManager controls;
     private Vector2 moveInput;
-    public float movespeed = 2f;
-    public float jumpForce = 5f;
+    public float movespeed = 1.5f;
+    public float jumpForce = 3f;
     public bool isGrounded = false;
+    public bool isCharged = true;
     // see https://www.youtube.com/watch?v=Pzd8NhcRzVo
     // and https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html
 
@@ -31,11 +32,12 @@ public class InputHandling : MonoBehaviour
         Debug.Log(Gamepad.current.leftStick.ReadValue());
         moveInput = Gamepad.current.leftStick.ReadValue();
         */
-
+        float currentMovespeed = movespeed * (gameObject.GetComponent<Charge>().batteryCharge * 0.01f) + 0.5f;
         Vector3 pos = gameObject.transform.position;
-        pos.x += moveInput.x * Time.deltaTime * movespeed;
+        pos.x += moveInput.x * Time.deltaTime * movespeed * currentMovespeed;
         //pos.y += moveInput.y * Time.deltaTime;
         gameObject.transform.position = pos;
+       
     }
 
     private void Awake()
@@ -60,7 +62,8 @@ public class InputHandling : MonoBehaviour
         // Debug.Log("Jumped");
         if (isGrounded)
         {
-           gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            float currentjumpForce = jumpForce * (gameObject.GetComponent<Charge>().batteryCharge * 0.01f) + 2f;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentjumpForce), ForceMode2D.Impulse);
         }
         
     }
@@ -68,5 +71,6 @@ public class InputHandling : MonoBehaviour
     private void OnMove(Vector2 value)
     {
         moveInput = value;
+            
     }
 }

@@ -51,7 +51,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""name"": ""WASD"",
                     ""id"": ""9804a307-4f46-41c9-a0a8-dc266df90c78"",
                     ""path"": ""2DVector"",
-                    ""interactions"": ""Hold,Press(behavior=1)"",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
