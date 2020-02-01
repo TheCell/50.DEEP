@@ -18,6 +18,14 @@ public class Grounded : MonoBehaviour
         
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Ground"))
+        {
+            Player.GetComponent<InputHandling>().isGrounded = true;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Ground"))
