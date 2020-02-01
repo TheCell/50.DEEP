@@ -5,6 +5,8 @@ public class InputHandling : MonoBehaviour
 {
     private InputManager controls;
     private Vector2 moveInput;
+    // see https://www.youtube.com/watch?v=Pzd8NhcRzVo
+    // and https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class InputHandling : MonoBehaviour
     private void HandleInput()
     {
         /*
+        // this is the alternative way
         Debug.Log(Gamepad.current.leftStick.ReadValue());
         moveInput = Gamepad.current.leftStick.ReadValue();
         */
@@ -57,6 +60,5 @@ public class InputHandling : MonoBehaviour
     private void OnMove(Vector2 value)
     {
         moveInput = value;
-        Debug.Log(moveInput);
     }
 }
