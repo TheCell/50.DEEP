@@ -99,6 +99,7 @@ MonoBehaviour:
   spritesForPower:
   - {fileID: 21300000, guid: 39ed615f53f57f545a5ecd1e77fdb3fc, type: 3}
   - {fileID: 21300000, guid: 51b6506c0e777524db46d3d46a7633c7, type: 3}
+  - {fileID: 21300000, guid: 0b4252676042ce14688fc3bb70764e9d, type: 3}
   spritesForBuildingMaterial:
   - {fileID: 21300000, guid: 38aef5a108cc6a449a440b3b00b7c7e4, type: 3}
   spritesForWater:

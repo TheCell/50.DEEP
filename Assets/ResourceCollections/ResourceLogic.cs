@@ -39,7 +39,14 @@ public class ResourceLogic : MonoBehaviour
         switch (typeOfResource)
         {
             case ResourceType.Antrieb:
-                drillResources.Antrieb = 1;
+                if (spriteRenderer.sprite.name == "Resource_Karies")
+                {
+                    drillResources.Antrieb = - 1;
+                }
+                else
+                {
+                    drillResources.Antrieb = 1;
+                }
                 break;
             case ResourceType.Baumaterial:
                 drillResources.Baumaterial = 1;
