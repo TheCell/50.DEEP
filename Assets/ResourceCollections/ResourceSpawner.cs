@@ -32,6 +32,7 @@ public class ResourceSpawner : MonoBehaviour
         GameObject resource = Instantiate(resourcePrefab);
         resource.transform.position = GetRandomPosition();
         ResourceLogic resourceLogic = resource.GetComponent<ResourceLogic>();
+        resourceLogic.typeOfResource = GetRandomType();
 
         GameObject oldObj = GetNextPoolObject();
         Destroy(oldObj);

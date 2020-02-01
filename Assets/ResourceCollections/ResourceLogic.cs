@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class ResourceLogic : MonoBehaviour
 {
-    private ResourceType typeOfResource;
-
-    public void SetResourceType(ResourceType resource)
-    {
-        typeOfResource = resource;
-    }
+    public ResourceType typeOfResource;
 
     private void Start()
     {
