@@ -27,7 +27,7 @@ public class ButttonController : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         sr.sprite = ButtonUp;
     }
