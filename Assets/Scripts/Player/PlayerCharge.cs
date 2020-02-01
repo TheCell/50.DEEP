@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Charge : MonoBehaviour
+public class PlayerCharge : MonoBehaviour
 {
     public float maxbatteryCharge = 100f;
     public float batteryCharge;

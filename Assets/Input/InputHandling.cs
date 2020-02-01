@@ -40,7 +40,7 @@ public class InputHandling : MonoBehaviour
         Debug.Log(Gamepad.current.leftStick.ReadValue());
         moveInput = Gamepad.current.leftStick.ReadValue();
         */
-        float currentMovespeed = movespeed * (gameObject.GetComponent<Charge>().batteryCharge * 0.01f) + 0.5f;
+        float currentMovespeed = movespeed * (gameObject.GetComponent<PlayerCharge>().batteryCharge * 0.01f) + 0.5f;
         Vector3 pos = gameObject.transform.position;
         pos.x += moveInput.x * Time.deltaTime * movespeed * currentMovespeed;
         gameObject.transform.position = pos;
@@ -52,7 +52,7 @@ public class InputHandling : MonoBehaviour
         // Debug.Log("Jumped");
         if (isGrounded)
         {
-            float currentjumpForce = jumpForce * (gameObject.GetComponent<Charge>().batteryCharge * 0.01f) + 2f;
+            float currentjumpForce = jumpForce * (gameObject.GetComponent<PlayerCharge>().batteryCharge * 0.01f) + 2f;
             Vector2 gravity = -Physics2D.gravity;
             gameObject.GetComponent<Rigidbody2D>().AddForce(gravity.normalized * currentjumpForce, ForceMode2D.Impulse);
         }
