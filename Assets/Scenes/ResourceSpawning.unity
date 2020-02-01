@@ -145,12 +145,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57717803}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &57717806
 MonoBehaviour:
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336a5d0b83f7b4c44bdb15d8908b5b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offscreenDistance: 1
+  offscreenDistance: 10
   resourcePrefab: {fileID: 3104494475704635666, guid: 416a2862fa0c996418a4c9d58f638691,
     type: 3}
   spawnrate: 5
@@ -209,7 +209,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662283535
 GameObject:
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 662283538}
   - component: {fileID: 662283539}
   m_Layer: 0
-  m_Name: panzer
+  m_Name: DrillBoat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1848601e2ebbb449697717a67a9c577b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24221826b1aa94ec3a7218e326a3f0f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -587,6 +587,7 @@ MonoBehaviour:
   movespeed: 2
   jumpForce: 5
   isGrounded: 0
+  isCharged: 1
 --- !u!212 &2030901834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -763,7 +764,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

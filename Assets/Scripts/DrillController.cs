@@ -22,7 +22,7 @@ public class DrillController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direction * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + direction.normalized * Time.fixedDeltaTime);
     }
 
     private void Update()
@@ -32,13 +32,13 @@ public class DrillController : MonoBehaviour
 
     private void RotateTowardsDirection()
     {
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg - 180;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angle));
     }
 
     public void Steer(float dir)
     {
-        direction.x += dir;
+        direction.x += dir * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
