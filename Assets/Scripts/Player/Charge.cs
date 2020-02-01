@@ -23,7 +23,7 @@ public class Charge : MonoBehaviour
     {
         Battery();
 
-        Debug.Log(batteryCharge);
+        //Debug.Log(batteryCharge);
         //chargeText.text = batteryCharge.ToString();
 
     }

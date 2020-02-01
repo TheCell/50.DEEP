@@ -25,6 +25,14 @@ public class InputHandling : MonoBehaviour
         HandleInput();
     }
 
+    private void Awake()
+    {
+        controls = new InputManager();
+        controls.Player.Jump.performed += ctx => Jump();
+        controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
+        //controls.Player.Interact.performed += ctx => Interact();
+    }
+
     private void HandleInput()
     {
         /*
@@ -35,17 +43,8 @@ public class InputHandling : MonoBehaviour
         float currentMovespeed = movespeed * (gameObject.GetComponent<Charge>().batteryCharge * 0.01f) + 0.5f;
         Vector3 pos = gameObject.transform.position;
         pos.x += moveInput.x * Time.deltaTime * movespeed * currentMovespeed;
-        //pos.y += moveInput.y * Time.deltaTime;
         gameObject.transform.position = pos;
        
-    }
-
-    private void Awake()
-    {
-        controls = new InputManager();
-        controls.Player.Jump.performed += ctx => Jump();
-        controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
-        //controls.Player.Interact.performed += ctx => Interact();
     }
 
     private void Jump()
@@ -54,7 +53,8 @@ public class InputHandling : MonoBehaviour
         if (isGrounded)
         {
             float currentjumpForce = jumpForce * (gameObject.GetComponent<Charge>().batteryCharge * 0.01f) + 2f;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentjumpForce), ForceMode2D.Impulse);
+            Vector2 gravity = -Physics2D.gravity;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(gravity.normalized * currentjumpForce, ForceMode2D.Impulse);
         }
         
     }
