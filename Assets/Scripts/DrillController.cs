@@ -9,16 +9,12 @@ public class DrillController : MonoBehaviour
     //[Space]
     //public UnityEvent foundOre;
 
-    private int caramel = 0;
-    private int kaese = 0;
-    private int kaugummi = 0;
-    private int salat = 0;
-    private int zucker = 0;
+    private DrillResources dr;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        dr = new DrillResources();
     }
 
     // Update is called once per frame
@@ -33,26 +29,7 @@ public class DrillController : MonoBehaviour
 
         if(rl != null)
         {
-            switch (rl.typeOfResource)
-            {
-                case ResourceType.Caramel:
-                    caramel += 1;
-                    break;
-                case ResourceType.Kaese:
-                    kaese += 1;
-                    break;
-                case ResourceType.Kaugummi:
-                    kaugummi += 1;
-                    break;
-                case ResourceType.Salat:
-                    salat += 1;
-                    break;
-                case ResourceType.Zucker:
-                    zucker += 1;
-                    break;
-                default:
-                    break;
-            }
+            dr.AddRessource(rl.typeOfResource);
         }
     }
 }
