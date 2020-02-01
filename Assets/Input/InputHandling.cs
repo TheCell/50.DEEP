@@ -8,7 +8,7 @@ public class InputHandling : MonoBehaviour
     public float movespeed = 1.5f;
     public float jumpForce = 3f;
     public bool isGrounded = false;
-    public bool isCharged = true;
+    //public bool isCharged = true;
     // see https://www.youtube.com/watch?v=Pzd8NhcRzVo
     // and https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html
 
@@ -45,16 +45,7 @@ public class InputHandling : MonoBehaviour
         controls = new InputManager();
         controls.Player.Jump.performed += ctx => Jump();
         controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
-    }
-
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
+        //controls.Player.Interact.performed += ctx => Interact();
     }
 
     private void Jump()
@@ -72,5 +63,20 @@ public class InputHandling : MonoBehaviour
     {
         moveInput = value;
             
+    }
+
+    private void Interact()
+    {
+
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }

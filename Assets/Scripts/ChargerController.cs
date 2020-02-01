@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Charger : MonoBehaviour
+public class ChargerController : MonoBehaviour
 {
+    public UnityEvent startCharging;
+    public UnityEvent stopCharging;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<Charge>().isCharging = true;
+        startCharging.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<Charge>().isCharging = false;
+        stopCharging.Invoke();
     }
 }

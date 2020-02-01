@@ -16,29 +16,19 @@ public class Charge : MonoBehaviour
     void Start()
     {
         batteryCharge = maxbatteryCharge;
-        //InvokeRepeating("Battery", 1f, 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
         Battery();
-        
+
         Debug.Log(batteryCharge);
         //chargeText.text = batteryCharge.ToString();
 
-        if (batteryCharge > 0)
-        {
-            gameObject.GetComponent<InputHandling>().isCharged = true;
-            
-        } else
-        {
-            gameObject.GetComponent<InputHandling>().isCharged = false;
-        }
-
     }
 
-    void Battery()
+    private void Battery()
     {
         if (isCharging)
         {
@@ -56,5 +46,15 @@ public class Charge : MonoBehaviour
  
     }
 
-   
+    public void startCharging()
+    {
+        isCharging = true;
+    }
+
+    public void stopCharging()
+    {
+        isCharging = false;
+    }
+
+
 }
