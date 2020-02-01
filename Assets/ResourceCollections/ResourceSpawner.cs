@@ -23,7 +23,6 @@ public class ResourceSpawner : MonoBehaviour
         {
             SpawnResourceOffscreen();
             lastSpawnTime = Time.time;
-            Debug.Log("spawn");
         }
     }
 
@@ -32,7 +31,7 @@ public class ResourceSpawner : MonoBehaviour
         GameObject resource = Instantiate(resourcePrefab);
         resource.transform.position = GetRandomPosition();
         ResourceLogic resourceLogic = resource.GetComponent<ResourceLogic>();
-        resourceLogic.typeOfResource = GetRandomType();
+        resourceLogic.SetResourceType(GetRandomType());
 
         GameObject oldObj = GetNextPoolObject();
         Destroy(oldObj);
