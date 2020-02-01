@@ -8,28 +8,27 @@ public class DrillController : MonoBehaviour
     //[Header("Events")]
     //[Space]
     //public UnityEvent foundOre;
+    public static DrillResources dr;
 
-    private DrillResources dr;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         dr = new DrillResources();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         ResourceLogic rl = other.gameObject.GetComponent<ResourceLogic>();
 
         if(rl != null)
         {
-            dr.AddRessource(rl.typeOfResource);
+            dr.AddResource(rl.drillResources);
         }
+
+        Destroy(other.gameObject);
     }
 }

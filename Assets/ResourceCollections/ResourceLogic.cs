@@ -5,17 +5,20 @@ using UnityEngine;
 public class ResourceLogic : MonoBehaviour
 {
     public ResourceType typeOfResource;
+    public DrillResources drillResources;
     private SpriteRenderer spriteRenderer;
 
     public void SetResourceType(ResourceType type)
     {
         typeOfResource = type;
         UpdateSprite();
+        UpdateDrillResource();
     }
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        drillResources = new DrillResources();
     }
 
     private void Start()
@@ -26,6 +29,30 @@ public class ResourceLogic : MonoBehaviour
     private void Update()
     {
         
+    }
+
+    private void UpdateDrillResource()
+    {
+        switch (typeOfResource)
+        {
+            case ResourceType.Zucker:
+                drillResources.Zucker = 1;
+                break;
+            case ResourceType.Salat:
+                drillResources.Salat = 1;
+                break;
+            case ResourceType.Kaugummi:
+                drillResources.Kaugummi = 1;
+                break;
+            case ResourceType.Kaese:
+                drillResources.Kaese = 1;
+                break;
+            case ResourceType.Caramel:
+                drillResources.Caramel = 1;
+                break;
+            default:
+                break;
+        }
     }
 
     private void UpdateSprite()
