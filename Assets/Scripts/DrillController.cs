@@ -35,8 +35,10 @@ public class DrillController : MonoBehaviour
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg - 180;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angle));
 
-        Physics.gravity = direction.normalized * -9.81f;
-        Debug.Log(Physics.gravity);
+        Vector2 newGravity = direction.normalized * 9.81f;
+        Physics2D.gravity = newGravity;
+        // Debug.DrawLine(transform.position, Physics2D.gravity * 2);
+        // Debug.Log(Physics2D.gravity);
     }
 
     public void Steer(float dir)

@@ -20,6 +20,8 @@ public class BackgroundUpdater : MonoBehaviour
         SpawnNewRow();
         SpawnNewRow();
         SpawnNewRow();
+        SpawnNewRow();
+        SpawnNewRow();
     }
 
     private void Update()
