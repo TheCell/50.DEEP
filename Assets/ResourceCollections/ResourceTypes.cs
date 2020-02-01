@@ -1,8 +1,6 @@
 ﻿public enum ResourceType
 {
-    Zucker,
-    Kaese,
-    Salat,
-    Caramel,
-    Kaugummi
+    Antrieb,
+    Baumaterial,
+    Wasser
 }

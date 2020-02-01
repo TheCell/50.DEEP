@@ -4,32 +4,24 @@ using UnityEngine;
 
 public class DrillResources
 {
-    private int caramel;
-    private int kaese;
-    private int kaugummi;
-    private int salat;
-    private int zucker;
-    public int Caramel { get => caramel; set => caramel = value; }
-    public int Kaese { get => kaese; set => kaese = value; }
-    public int Kaugummi { get => kaugummi; set => kaugummi = value; }
-    public int Salat { get => salat; set => salat = value; }
-    public int Zucker { get => zucker; set => zucker = value; }
-
+    private int antrieb;
+    private int baumaterial;
+    private int wasser;
     public DrillResources()
     {
-        Caramel = 0;
-        Kaese = 0;
-        Kaugummi = 0;
-        Salat = 0;
-        Zucker = 0;
+        Antrieb = 0;
+        Baumaterial = 0;
+        Wasser = 0;
     }
+
+    public int Antrieb { get => antrieb; set => antrieb = value; }
+    public int Baumaterial { get => baumaterial; set => baumaterial = value; }
+    public int Wasser { get => wasser; set => wasser = value; }
 
     public void AddResource(DrillResources resources)
     {
-        this.Caramel += resources.Caramel;
-        this.Kaese += resources.Kaese;
-        this.Kaugummi += resources.Kaugummi;
-        this.Salat += resources.Salat;
-        this.Zucker += resources.Zucker;
+        this.Antrieb += resources.Antrieb;
+        this.Baumaterial += resources.Baumaterial;
+        this.Wasser += resources.Wasser;
     }
 }
