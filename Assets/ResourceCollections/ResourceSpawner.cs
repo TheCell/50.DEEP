@@ -14,7 +14,7 @@ public class ResourceSpawner : MonoBehaviour
     private void Start()
     {
         lastSpawnTime = Time.time;
-        objectPool = new GameObject[100];
+        objectPool = new GameObject[200];
     }
 
     private void Update()
@@ -62,6 +62,7 @@ public class ResourceSpawner : MonoBehaviour
         float randomValueY = Random.Range(-offscreenDistance, -offscreenDistance - 2f);
 
         Vector3 pos = new Vector3(randomValueX, randomValueY, 0);
+        pos = pos + transform.position;
 
         if (Vector3.Distance(pos, transform.position) < offscreenDistance)
         {
