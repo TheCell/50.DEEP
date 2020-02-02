@@ -28,7 +28,7 @@ public class GlobalShipStatus : MonoBehaviour
             UpdateValues();
             UpdateHighscore();
             lastTickTime = Time.time;
-            Debug.Log("Current shipHP: " + shipHP);
+            //Debug.Log("Current shipHP: " + shipHP);
             CheckLoseCondition();
         }
     }
