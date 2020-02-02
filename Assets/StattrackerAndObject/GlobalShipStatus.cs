@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalShipStatus : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class GlobalShipStatus : MonoBehaviour
         if (shipHP < 1)
         {
             Debug.Log("You lost :( your Highscore is " + currentScore);
+            LoseScreen.highscore = currentScore;
+            SceneManager.LoadScene(1);
         }
     }
 
