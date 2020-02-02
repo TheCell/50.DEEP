@@ -6,6 +6,10 @@ public class GlobalShipStatus : MonoBehaviour
 {
     [SerializeField] private ShipMaxValues shipMaxValues;
     [SerializeField] private Text shipHPText;
+    [SerializeField] private Text shipPowerText;
+    [SerializeField] private Text shipRepairMaterialsText;
+    [SerializeField] private Text shipWaterText;
+
     private int shipHP;
     private int currentScore;
     private float tickTime = 1f; // 1 tick each second. 0.5 means 2 ticks per second
@@ -75,6 +79,18 @@ public class GlobalShipStatus : MonoBehaviour
         if (shipHPText != null)
         {
             shipHPText.text = "ShipHP: " + shipHP;
+        }
+        if (shipPowerText != null)
+        {
+            shipPowerText.text = "Ship Power: " + DrillController.dr.Antrieb;
+        }
+        if (shipRepairMaterialsText != null)
+        {
+            shipRepairMaterialsText.text = "Ship Materials: " + DrillController.dr.Baumaterial;
+        }
+        if (shipWaterText != null)
+        {
+            shipWaterText.text = "Ship Water: " + DrillController.dr.Wasser;
         }
     }
 }
