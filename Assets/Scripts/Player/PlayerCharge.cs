@@ -8,11 +8,11 @@ public class PlayerCharge : MonoBehaviour
     public float maxbatteryCharge = 100f;
     public float batteryCharge;
     //public Text chargeText;
-    public bool isCharging = false;
+    private bool isCharging = false;
     public float regenAmount = 1.0f;
     public float decreasingAmount = 1.0f;
     private InputManager controls;
-    public GameObject charger = null;
+    public GameObject charger;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,7 @@ public class PlayerCharge : MonoBehaviour
 
     void Interact()
     {
-        if(isCharging)
+        if (isCharging)
         {
             StartCoroutine(Charging());
         }

@@ -8,7 +8,6 @@ public class InputHandling : MonoBehaviour
     public float movespeed = 1.5f;
     public float jumpForce = 3f;
     public bool isGrounded = false;
-    //public bool isCharged = true;
     // see https://www.youtube.com/watch?v=Pzd8NhcRzVo
     // and https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html
 
