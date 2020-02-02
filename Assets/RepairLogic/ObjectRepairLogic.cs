@@ -11,6 +11,32 @@ public class ObjectRepairLogic : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float nextDamageTime;
 
+    public bool DoesDamage()
+    {
+        bool isDamaging = false;
+        int currentHealth = 100;
+
+        switch (typeOfResourceForRepair)
+        {
+            case ResourceType.Antrieb:
+                currentHealth = currentObjectResource.Antrieb;
+                break;
+            case ResourceType.Baumaterial:
+                currentHealth = currentObjectResource.Baumaterial;
+                break;
+            case ResourceType.Wasser:
+                currentHealth = currentObjectResource.Wasser;
+                break;
+        }
+
+        if (currentHealth < 1)
+        {
+            isDamaging = true;
+        }
+
+        return isDamaging;
+    }
+
     private void Start()
     {
         currentObjectResource = new DrillResources();
