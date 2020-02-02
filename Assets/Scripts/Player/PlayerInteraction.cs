@@ -55,7 +55,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (interactableObject)
         {
-            Debug.Log("test");
             if (interactableObject.CompareTag("Vent"))
             {
                 StartCoroutine(Teleport());

@@ -64,11 +64,6 @@ public class InputHandling : MonoBehaviour
             
     }
 
-    private void Interact()
-    {
-
-    }
-
     private void OnEnable()
     {
         controls.Enable();

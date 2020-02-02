@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class PlayerCharge : MonoBehaviour
 {
+    private InputManager controls;
     public float maxbatteryCharge = 100f;
     public float batteryCharge;
     //public Text chargeText;
     private bool isCharging = false;
     public float regenAmount = 1.0f;
     public float decreasingAmount = 1.0f;
-    private InputManager controls;
     public GameObject charger;
 
     // Start is called before the first frame update
