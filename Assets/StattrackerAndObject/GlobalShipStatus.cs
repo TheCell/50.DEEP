@@ -63,6 +63,7 @@ public class GlobalShipStatus : MonoBehaviour
     {
         int allDamage = 0;
         ObjectRepairLogic[] allRepairables = FindObjectsOfType<ObjectRepairLogic>();
+        Debug.Log("found " + allRepairables .Length + " repairable Objects");
         for (int i = 0; i < allRepairables.Length; i++)
         {
             if (allRepairables[i].DoesDamage())

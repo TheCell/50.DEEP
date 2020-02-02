@@ -127,8 +127,8 @@ public class ObjectRepairLogic : MonoBehaviour
                 break;
             case ResourceType.Baumaterial:
                 //int amountBaumaterialMissing = 100 - currentObjectResource.Baumaterial;
-                GetComponent<AudioSource>().Play();
                 currentObjectResource.Baumaterial = 100;
+                GetComponent<AudioSource>().Play();
 
                 //if (playerResources.Antrieb >= amountBaumaterialMissing)
                 //{
@@ -176,8 +176,6 @@ public class ObjectRepairLogic : MonoBehaviour
 
     private void UpdateSprites()
     {
-
-
         int currentAmount = 0;
 
         switch (typeOfResourceForRepair)
@@ -193,7 +191,14 @@ public class ObjectRepairLogic : MonoBehaviour
                 break;
         }
 
-        GetComponent<Animator>().SetInteger("Health", currentAmount);
+        if (GetComponent<Animator>() != null)
+        {
+            GetComponent<Animator>().SetInteger("Health", currentAmount);
+        }
+        else
+        {
+            Debug.LogError("no Animator");
+        }
 
         //if (currentAmount > 80)
         //{
@@ -215,7 +220,7 @@ public class ObjectRepairLogic : MonoBehaviour
 
     private void GetDamaged()
     {
-        int amountOfDamage = Random.Range(0, 30);
+        int amountOfDamage = Random.Range(0, 20);
 
         switch (typeOfResourceForRepair)
         {

@@ -13,7 +13,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (other.CompareTag("Interactable") || other.CompareTag("Vent"))
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             interactableObject = other.gameObject;
         }
     }
@@ -24,7 +24,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if(other.gameObject == interactableObject)
             {
-                Debug.Log(other.name);
+                //Debug.Log(other.name);
                 interactableObject = null;
             }
         }
@@ -32,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour
 
     IEnumerator Teleport()
     {
-        Debug.Log(interactableObject);
+        //Debug.Log(interactableObject);
         GameObject[] vents = GameObject.FindGameObjectsWithTag("Vent");
 
         GameObject exitVent = null;
