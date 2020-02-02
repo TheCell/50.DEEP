@@ -8,7 +8,7 @@ public class ObjectRepairLogic : MonoBehaviour
     [SerializeField] private float minimumTimeBetweenDamage = 5f;
     [SerializeField] private float maximumTimeBetweenDamage = 15f;
     private DrillResources currentObjectResource;
-    private SpriteRenderer spriteRenderer;
+    //private SpriteRenderer spriteRenderer;
     private float nextDamageTime;
 
     public bool DoesDamage()
@@ -40,7 +40,7 @@ public class ObjectRepairLogic : MonoBehaviour
     private void Start()
     {
         currentObjectResource = new DrillResources();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
 
         switch(typeOfResourceForRepair)
         {
@@ -109,13 +109,12 @@ public class ObjectRepairLogic : MonoBehaviour
         {
             case ResourceType.Antrieb:
                 int amountAntriebMissing = 100 - currentObjectResource.Antrieb;
-
+                GetComponent<AudioSource>().Play();
                 if (playerResources.Antrieb >= amountAntriebMissing)
                 {
                     // player has the amount or more in inventory. Reduce inventory
                     currentObjectResource.Antrieb = 100;
                     resourceReduction.Antrieb = -amountAntriebMissing;
-                    GetComponent<AudioSource>().Play();
                 }
                 else
                 {
@@ -145,13 +144,13 @@ public class ObjectRepairLogic : MonoBehaviour
                 break;
             case ResourceType.Wasser:
                 int amountWasserMissing = 100 - currentObjectResource.Wasser;
+                GetComponent<AudioSource>().Play();
 
                 if (playerResources.Wasser >= amountWasserMissing)
                 {
                     // player has the amount or more in inventory. Reduce inventory
                     currentObjectResource.Wasser = 100;
                     resourceReduction.Wasser = -amountWasserMissing;
-                    GetComponent<AudioSource>().Play();
                 }
                 else
                 {
