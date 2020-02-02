@@ -6,6 +6,7 @@ public class PickupController : MonoBehaviour
 {
 
     public ResourceType type;
+    
 
     public void DoInteraction(GameObject player)
     {

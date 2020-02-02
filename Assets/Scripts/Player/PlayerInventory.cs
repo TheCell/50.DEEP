@@ -40,8 +40,10 @@ public class PlayerInventory: MonoBehaviour
             case ResourceType.Antrieb:
                 int amountAntriebMissing = maxAmount - playerResources.Antrieb;
 
+                
                 if (controller.Antrieb >= amountAntriebMissing)
                 {
+                    // Ship has enough in Storage to fill up Player Inventory
                     controller.Antrieb -= amountAntriebMissing;
                     playerResources.Antrieb = maxAmount;
                 } else

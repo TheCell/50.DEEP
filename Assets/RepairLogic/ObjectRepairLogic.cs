@@ -172,6 +172,8 @@ public class ObjectRepairLogic : MonoBehaviour
 
     private void UpdateSprites()
     {
+
+
         int currentAmount = 0;
 
         switch (typeOfResourceForRepair)
@@ -187,22 +189,24 @@ public class ObjectRepairLogic : MonoBehaviour
                 break;
         }
 
-        if (currentAmount > 80)
-        {
-            spriteRenderer.sprite = sprites[0];
-        }
-        else if (currentAmount > 60)
-        {
-            spriteRenderer.sprite = sprites[1];
-        }
-        else if (currentAmount > 0)
-        {
-            spriteRenderer.sprite = sprites[2];
-        }
-        else
-        {
-            spriteRenderer.sprite = sprites[3];
-        }
+        GetComponent<Animator>().SetInteger("Health", currentAmount);
+
+        //if (currentAmount > 80)
+        //{
+        //    spriteRenderer.sprite = sprites[0];
+        //}
+        //else if (currentAmount > 60)
+        //{
+        //    spriteRenderer.sprite = sprites[1];
+        //}
+        //else if (currentAmount > 0)
+        //{
+        //    spriteRenderer.sprite = sprites[2];
+        //}
+        //else
+        //{
+        //    spriteRenderer.sprite = sprites[3];
+        //}
     }
 
     private void GetDamaged()
