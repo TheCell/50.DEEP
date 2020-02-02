@@ -14,11 +14,13 @@ public class DrillController : MonoBehaviour
     private Vector2 direction = Vector2.down;
     private Rigidbody2D rb;
     private int sugarAmount = 100;
+    private AudioSource audioSource;
 
     private void Start()
     {
         dr = new DrillResources();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -49,7 +51,15 @@ public class DrillController : MonoBehaviour
     {
         while (true)
         {
-            sugarAmount -= 1;
+            if (sugarAmount >= 0)
+            {
+                audioSource.volume = 0f;
+                sugarAmount -= 5;
+            }
+            else
+            {
+                audioSource.volume = 0f;
+            }
             yield return new WaitForSeconds(0.5f);
         }
     }
