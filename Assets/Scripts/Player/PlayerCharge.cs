@@ -11,6 +11,8 @@ public class PlayerCharge : MonoBehaviour
     public bool isCharging = false;
     public float regenAmount = 1.0f;
     public float decreasingAmount = 1.0f;
+    private InputManager controls;
+    public GameObject charger = null;
 
     // Start is called before the first frame update
     void Start()
@@ -21,39 +23,71 @@ public class PlayerCharge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Battery();
+        if (batteryCharge > 0)
+        {
+            batteryCharge -= decreasingAmount * Time.deltaTime;
+
+        }
 
         //Debug.Log(batteryCharge);
         //chargeText.text = batteryCharge.ToString();
 
     }
 
-    private void Battery()
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (isCharging)
+        if (other.CompareTag("Charger"))
         {
-            if (batteryCharge < maxbatteryCharge)
-            {
-                batteryCharge += regenAmount * Time.deltaTime;
-            }
-        } else
-        {
-            if (batteryCharge > 0)
-            {
-                batteryCharge -= decreasingAmount * Time.deltaTime; ;
-            }
+            isCharging = true;
+            charger = other.gameObject;
         }
- 
     }
 
-    public void startCharging()
+    public void OnTriggerExit2D(Collider2D other)
     {
-        isCharging = true;
+        if (other.CompareTag("Charger"))
+        {
+            isCharging = false;
+            charger = null;
+        }
     }
 
-    public void stopCharging()
+    void Interact()
     {
-        isCharging = false;
+        if(isCharging)
+        {
+            StartCoroutine(Charging());
+        }
+    }
+
+    IEnumerator Charging()
+    {
+        Debug.Log(batteryCharge);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        charger.GetComponent<Animator>().SetBool("isRecharging", true);
+        yield return new WaitForSeconds(4.0f);
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        charger.GetComponent<Animator>().SetBool("isRecharging", false);
+        batteryCharge = maxbatteryCharge;
+        Debug.Log(batteryCharge);
+
+    }
+
+
+    private void Awake()
+    {
+        controls = new InputManager();
+        controls.Player.Interact.performed += ctx => Interact();
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
 

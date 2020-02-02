@@ -11,10 +11,12 @@ public class ChargerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         startCharging.Invoke();
+        //gameObject.GetComponent<Animator>().SetBool("isRecharging", true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         stopCharging.Invoke();
+        //gameObject.GetComponent<Animator>().SetBool("isRecharging", false);
     }
 }
