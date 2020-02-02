@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class ObjectRepairLogic : MonoBehaviour
 {
     [SerializeField] private ResourceType typeOfResourceForRepair;
-    [SerializeField] private Sprite[] sprites;
+    //[SerializeField] private Sprite[] sprites;
     [SerializeField] private float minimumTimeBetweenDamage = 5f;
     [SerializeField] private float maximumTimeBetweenDamage = 15f;
     private DrillResources currentObjectResource;

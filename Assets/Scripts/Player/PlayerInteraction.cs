@@ -13,7 +13,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (other.CompareTag("Interactable") || other.CompareTag("Vent"))
         {
-            //Debug.Log(other.name);
+            Debug.Log(other.name);
             interactableObject = other.gameObject;
         }
     }
@@ -63,6 +63,7 @@ public class PlayerInteraction : MonoBehaviour
                 StartCoroutine(Teleport());
             } else if (interactableObject.CompareTag("Interactable"))
             {
+                
                 interactableObject.SendMessage("DoInteraction", gameObject);
             }
 
