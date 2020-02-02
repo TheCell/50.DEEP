@@ -14,6 +14,13 @@ public class DrillResources
         Wasser = 0;
     }
 
+    public DrillResources(int antrieb, int baumaterial, int wasser)
+    {
+        Antrieb = antrieb;
+        Baumaterial = baumaterial;
+        Wasser = wasser;
+    }
+
     public int Antrieb { get => antrieb; set => antrieb = value; }
     public int Baumaterial { get => baumaterial; set => baumaterial = value; }
     public int Wasser { get => wasser; set => wasser = value; }

@@ -76,12 +76,21 @@ public class ObjectRepairLogic : MonoBehaviour
             UpdateSprites();
         }
 
-        // manual testing
         if (Keyboard.current.pKey.wasPressedThisFrame)
         {
-            Debug.LogError("todo: call this from event");
-            Repair();
-            UpdateSprites();
+            DrillResources playerResources = new DrillResources(50, 50, 50);
+            DrillResources playerResAfter = Repair(playerResources);
+
+            Debug.Log(
+                "playerResources before"
+                + "Antrieb " + playerResources.Antrieb
+                + " baumat " + playerResources.Baumaterial
+                + " wasser " + playerResources.Wasser);
+            Debug.Log(
+                "playerResources after"
+                + "Antrieb " + playerResAfter.Antrieb
+                + " baumat " + playerResAfter.Baumaterial
+                + " wasser " + playerResAfter.Wasser);
         }
     }
 
@@ -91,24 +100,70 @@ public class ObjectRepairLogic : MonoBehaviour
         this.nextDamageTime = Time.time + randomSeconds;
     }
 
-    private void Repair()
+    public DrillResources Repair(DrillResources playerResources)
     {
+        DrillResources resourceReduction = new DrillResources();
+
         switch (typeOfResourceForRepair)
         {
             case ResourceType.Antrieb:
-                DrillController.dr.Antrieb -= (100 - currentObjectResource.Antrieb);
-                currentObjectResource.Antrieb = 100;
+                int amountAntriebMissing = 100 - currentObjectResource.Antrieb;
+
+                if (playerResources.Antrieb >= amountAntriebMissing)
+                {
+                    // player has the amount or more in inventory. Reduce inventory
+                    currentObjectResource.Antrieb = 100;
+                    resourceReduction.Antrieb = -amountAntriebMissing;
+                }
+                else
+                {
+                    // player has less resource then needed. Only repairing the amount hold
+                    int stillAmountMissing = amountAntriebMissing - playerResources.Antrieb;
+                    resourceReduction.Antrieb = - playerResources.Antrieb;
+                    currentObjectResource.Antrieb = 100 - stillAmountMissing;
+                }
                 break;
             case ResourceType.Baumaterial:
-                DrillController.dr.Baumaterial -= (100 - currentObjectResource.Baumaterial);
-                currentObjectResource.Baumaterial = 100;
+                int amountBaumaterialMissing = 100 - currentObjectResource.Baumaterial;
+
+                if (playerResources.Antrieb >= amountBaumaterialMissing)
+                {
+                    // player has the amount or more in inventory. Reduce inventory
+                    currentObjectResource.Baumaterial = 100;
+                    resourceReduction.Baumaterial = -amountBaumaterialMissing;
+                }
+                else
+                {
+                    // player has less resource then needed. Only repairing the amount hold
+                    int stillAmountMissing = amountBaumaterialMissing - playerResources.Baumaterial;
+                    resourceReduction.Baumaterial = -playerResources.Baumaterial;
+                    currentObjectResource.Baumaterial = 100 - stillAmountMissing;
+                }
                 break;
             case ResourceType.Wasser:
-                DrillController.dr.Wasser -= (100 - currentObjectResource.Wasser);
-                currentObjectResource.Wasser = 100;
+                int amountWasserMissing = 100 - currentObjectResource.Wasser;
+
+                if (playerResources.Wasser >= amountWasserMissing)
+                {
+                    // player has the amount or more in inventory. Reduce inventory
+                    currentObjectResource.Wasser = 100;
+                    resourceReduction.Wasser = -amountWasserMissing;
+                }
+                else
+                {
+                    // player has less resource then needed. Only repairing the amount hold
+                    int stillAmountMissing = amountWasserMissing - playerResources.Wasser;
+                    resourceReduction.Wasser = -playerResources.Wasser;
+                    currentObjectResource.Wasser = 100 - stillAmountMissing;
+                }
                 break;
         }
+        
+        UpdateSprites();
+        playerResources.AddResource(resourceReduction);
+        return playerResources;
     }
+            
 
     private void UpdateSprites()
     {
