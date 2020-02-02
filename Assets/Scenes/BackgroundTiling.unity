@@ -211,6 +211,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1821383793677614706, guid: 1b4342f4e4ad8514e8fd0532569365ae,
+        type: 3}
+      propertyPath: numberOfSpritesPerRow
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1821383793677614707, guid: 1b4342f4e4ad8514e8fd0532569365ae,
         type: 3}
       propertyPath: m_Name

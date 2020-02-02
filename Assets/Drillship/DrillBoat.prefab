@@ -5120,7 +5120,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995662599}
-  - component: {fileID: 1995662601}
   - component: {fileID: 1995662600}
   m_Layer: 0
   m_Name: EnergyRefill
@@ -5143,46 +5142,6 @@ Transform:
   m_Father: {fileID: 5027430926185467886}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1995662601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995662598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 937db6db1682641248f8e689acd965b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startCharging:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4473617437259980270}
-        m_MethodName: startCharging
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  stopCharging:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4473617437259980270}
-        m_MethodName: stopCharging
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &1995662600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6256,6 +6215,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5027430926185467886}
     m_Modifications:
+    - target: {fileID: 1821383793677614706, guid: 1b4342f4e4ad8514e8fd0532569365ae,
+        type: 3}
+      propertyPath: numberOfSpritesPerRow
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1821383793677614707, guid: 1b4342f4e4ad8514e8fd0532569365ae,
         type: 3}
       propertyPath: m_Name
@@ -6573,18 +6537,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d5ffcc923a340748ce7aacc88e7414, type: 3}
---- !u!114 &4473617437259980270 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8921770023728615167, guid: f8d5ffcc923a340748ce7aacc88e7414,
-    type: 3}
-  m_PrefabInstance: {fileID: 5027430925391975185}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6aaffd95c55849c199c041e2c0d195a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4473617437259980266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8921770023728615163, guid: f8d5ffcc923a340748ce7aacc88e7414,

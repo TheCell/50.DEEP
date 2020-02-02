@@ -7,10 +7,10 @@ public class BackgroundUpdater : MonoBehaviour
 {
     [SerializeField] private Sprite[] backgroundSprites;
     [SerializeField] private int gridSize = 8;
-    [SerializeField] private int numberOfSpritesPerRow = 7;
+    [SerializeField] private int numberOfSpritesPerRow = 15;
     private int currentSpriteToLoad = 0;
     private int currentBackgroundRows = 0;
-    private int maxNumbersObBackgrounds = 80;
+    private int maxNumbersObBackgrounds = 150;
     private List<GameObject> createdBackgrounds = new List<GameObject>();
     private float lastYPos;
  
@@ -41,7 +41,7 @@ public class BackgroundUpdater : MonoBehaviour
             GameObject gameObject = new GameObject();
             AddSprite(gameObject);
             Vector3 currentTilePosition = new Vector3(
-                i * gridSize - (numberOfSpritesPerRow / 2 * gridSize), 
+                ((int)transform.position.x) + i * gridSize - (numberOfSpritesPerRow / 2 * gridSize), 
                 -1 * currentBackgroundRows * gridSize, 
                 0);
 
