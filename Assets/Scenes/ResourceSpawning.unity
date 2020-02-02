@@ -231,5 +231,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: DrillBoat
       objectReference: {fileID: 0}
+    - target: {fileID: 5916842298571938986, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: typeOfResourceForRepair
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916842298571938987, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916842298571938987, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c36647343c8c367438db04654c4a6c73, type: 3}
