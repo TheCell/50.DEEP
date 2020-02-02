@@ -161,6 +161,11 @@ public class ObjectRepairLogic : MonoBehaviour
         
         UpdateSprites();
         playerResources.AddResource(resourceReduction);
+        Debug.Log(
+    "Object ressources after"
+    + "Antrieb " + currentObjectResource.Antrieb
+    + " baumat " + currentObjectResource.Baumaterial
+    + " wasser " + currentObjectResource.Wasser);
         return playerResources;
     }
             

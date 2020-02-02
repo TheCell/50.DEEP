@@ -60,8 +60,7 @@ public class PlayerInteraction : MonoBehaviour
                 StartCoroutine(Teleport());
             } else if (interactableObject.CompareTag("Interactable"))
             {
-                gameObject.GetComponent<PlayerInventory>().AddItem(interactableObject);
-                interactableObject.SendMessage("DoInteraction");
+                interactableObject.SendMessage("DoInteraction", gameObject);
             }
 
         }
