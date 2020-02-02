@@ -13,11 +13,14 @@ public class PlayerCharge : MonoBehaviour
     public float regenAmount = 1.0f;
     public float decreasingAmount = 1.0f;
     public GameObject charger;
+    private AudioSource audioSource;
+    public AudioClip sleep;
 
     // Start is called before the first frame update
     void Start()
     {
         batteryCharge = maxbatteryCharge;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -66,7 +69,8 @@ public class PlayerCharge : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<InputHandling>().enabled = false;
         charger.GetComponent<Animator>().SetBool("isRecharging", true);
-        yield return new WaitForSeconds(4.0f);
+        audioSource.PlayOneShot(sleep);
+        yield return new WaitForSeconds(3.5f);
         gameObject.GetComponent<InputHandling>().enabled = true;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         charger.GetComponent<Animator>().SetBool("isRecharging", false);

@@ -13,6 +13,11 @@ public class InputHandling : MonoBehaviour
     public RuntimeAnimatorController[] animController;
     private Animator animator;
 
+    private AudioSource audioSource;
+    public AudioClip walkSound;
+    public AudioClip jumpSound;
+    public AudioClip landSound;
+
     // see https://www.youtube.com/watch?v=Pzd8NhcRzVo
     // and https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html
 
@@ -25,8 +30,10 @@ public class InputHandling : MonoBehaviour
 
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animController[characterSelection - 1];
+        audioSource = GetComponent<AudioSource>();
+
     }
-     
+
     private void Update()
     {
         HandleInput();
@@ -57,6 +64,11 @@ public class InputHandling : MonoBehaviour
        
     }
 
+    public void PlayLandingSound()
+    {
+        audioSource.PlayOneShot(landSound);
+    }
+
     private void Jump()
     {
         // Debug.Log("Jumped");
@@ -65,6 +77,7 @@ public class InputHandling : MonoBehaviour
             float currentjumpForce = jumpForce * (gameObject.GetComponent<PlayerCharge>().batteryCharge * 0.01f) + 2f;
             Vector2 gravity = -Physics2D.gravity;
             gameObject.GetComponent<Rigidbody2D>().AddForce(gravity.normalized * currentjumpForce, ForceMode2D.Impulse);
+            audioSource.PlayOneShot(jumpSound);
         }
         
     }
@@ -84,10 +97,12 @@ public class InputHandling : MonoBehaviour
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
+            audioSource.PlayOneShot(walkSound);
         }
         else
         {
             animator.SetBool("isWalking", false);
+            audioSource.Stop();
         }
     }
 
