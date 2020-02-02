@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ResourceSpawning.unity
-    guid: eb43fcca57a16084ba82230178fc5e6f
+    path: Assets/Scenes/MainScene.unity
+    guid: 2e74189dd50d647a5950d3d862830e0a
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 3c8784f0bcad6ab4786739013bb764e2
