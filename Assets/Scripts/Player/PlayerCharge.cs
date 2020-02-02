@@ -64,8 +64,10 @@ public class PlayerCharge : MonoBehaviour
     {
         Debug.Log(batteryCharge);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<InputHandling>().enabled = false;
         charger.GetComponent<Animator>().SetBool("isRecharging", true);
         yield return new WaitForSeconds(4.0f);
+        gameObject.GetComponent<InputHandling>().enabled = true;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         charger.GetComponent<Animator>().SetBool("isRecharging", false);
         batteryCharge = maxbatteryCharge;
