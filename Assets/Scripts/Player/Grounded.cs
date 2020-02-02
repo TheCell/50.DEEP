@@ -6,6 +6,7 @@ public class Grounded : MonoBehaviour
 {
     private GameObject Player;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class Grounded : MonoBehaviour
         if(collision.CompareTag("Ground"))
         {
             Player.GetComponent<InputHandling>().isGrounded = true;
+            Player.GetComponent<InputHandling>().PlayLandingSound();
         }
     }
 

@@ -11,5 +11,6 @@ public class PickupController : MonoBehaviour
     public void DoInteraction(GameObject player)
     {
         player.GetComponent<PlayerInventory>().AddItem(type);
+        GetComponent<AudioSource>().Play();
     }
 }

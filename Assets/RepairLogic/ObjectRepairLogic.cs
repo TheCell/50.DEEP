@@ -102,6 +102,7 @@ public class ObjectRepairLogic : MonoBehaviour
 
     public DrillResources Repair(DrillResources playerResources)
     {
+
         DrillResources resourceReduction = new DrillResources();
 
         switch (typeOfResourceForRepair)
@@ -114,6 +115,7 @@ public class ObjectRepairLogic : MonoBehaviour
                     // player has the amount or more in inventory. Reduce inventory
                     currentObjectResource.Antrieb = 100;
                     resourceReduction.Antrieb = -amountAntriebMissing;
+                    GetComponent<AudioSource>().Play();
                 }
                 else
                 {
@@ -124,21 +126,22 @@ public class ObjectRepairLogic : MonoBehaviour
                 }
                 break;
             case ResourceType.Baumaterial:
-                int amountBaumaterialMissing = 100 - currentObjectResource.Baumaterial;
+                //int amountBaumaterialMissing = 100 - currentObjectResource.Baumaterial;
+                GetComponent<AudioSource>().Play();
+                currentObjectResource.Baumaterial = 100;
 
-                if (playerResources.Antrieb >= amountBaumaterialMissing)
-                {
-                    // player has the amount or more in inventory. Reduce inventory
-                    currentObjectResource.Baumaterial = 100;
-                    resourceReduction.Baumaterial = -amountBaumaterialMissing;
-                }
-                else
-                {
-                    // player has less resource then needed. Only repairing the amount hold
-                    int stillAmountMissing = amountBaumaterialMissing - playerResources.Baumaterial;
-                    resourceReduction.Baumaterial = -playerResources.Baumaterial;
-                    currentObjectResource.Baumaterial = 100 - stillAmountMissing;
-                }
+                //if (playerResources.Antrieb >= amountBaumaterialMissing)
+                //{
+                //    // player has the amount or more in inventory. Reduce inventory
+                //    currentObjectResource.Baumaterial = 100;
+                //    resourceReduction.Baumaterial = -amountBaumaterialMissing;
+                //}
+                //else
+                //{
+                //    // player has less resource then needed. Only repairing the amount hold
+                //    int stillAmountMissing = amountBaumaterialMissing - playerResources.Baumaterial;
+                //    resourceReduction.Baumaterial = -playerResources.Baumaterial;
+                //}
                 break;
             case ResourceType.Wasser:
                 int amountWasserMissing = 100 - currentObjectResource.Wasser;
@@ -148,6 +151,7 @@ public class ObjectRepairLogic : MonoBehaviour
                     // player has the amount or more in inventory. Reduce inventory
                     currentObjectResource.Wasser = 100;
                     resourceReduction.Wasser = -amountWasserMissing;
+                    GetComponent<AudioSource>().Play();
                 }
                 else
                 {

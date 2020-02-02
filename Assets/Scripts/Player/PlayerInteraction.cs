@@ -6,6 +6,8 @@ public class PlayerInteraction : MonoBehaviour
 {
     private InputManager controls;
     public GameObject interactableObject = null;
+    private AudioSource audioSource;
+    public AudioClip shortcut;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -44,6 +46,7 @@ public class PlayerInteraction : MonoBehaviour
 
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<InputHandling>().enabled = false;
+        audioSource.PlayOneShot(shortcut);
         yield return new WaitForSeconds(2.0f);
         gameObject.transform.position = exitVent.transform.position;
         gameObject.GetComponent<InputHandling>().enabled = true;
@@ -64,6 +67,11 @@ public class PlayerInteraction : MonoBehaviour
             }
 
         }
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Awake()
