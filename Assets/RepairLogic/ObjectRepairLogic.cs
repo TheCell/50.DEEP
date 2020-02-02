@@ -161,7 +161,5 @@ public class ObjectRepairLogic : MonoBehaviour
                 currentObjectResource.Wasser -= amountOfDamage;
                 break;
         }
-        
-        Debug.Log("damaged");
     }
 }
