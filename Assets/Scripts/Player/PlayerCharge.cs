@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerCharge : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer sleepySprite;
     private InputManager controls;
     public float maxbatteryCharge = 100f;
     public float batteryCharge;
@@ -29,9 +30,9 @@ public class PlayerCharge : MonoBehaviour
         if (batteryCharge > 0)
         {
             batteryCharge -= decreasingAmount * Time.deltaTime;
-
         }
 
+        DisplaySleepyness();
         //Debug.Log(batteryCharge);
         //chargeText.text = batteryCharge.ToString();
 
@@ -96,5 +97,23 @@ public class PlayerCharge : MonoBehaviour
         controls.Disable();
     }
 
+    private void DisplaySleepyness()
+    {
+        if (sleepySprite == null)
+        {
+            return;
+        }
+        Color spriteColor = sleepySprite.color;
 
+        if (batteryCharge < 70f)
+        {
+            spriteColor.a = 1f;
+        }
+        else
+        {
+            spriteColor.a = 0f;
+        }
+
+        sleepySprite.color = spriteColor;
+    }
 }

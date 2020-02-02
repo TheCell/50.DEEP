@@ -128,27 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2920928832301339056, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2920928832301339056, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2920928832301339057, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: sprites.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2920928832301339059, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4a54b6bf137c248d2952d2d2c01b96dc,
-        type: 3}
     - target: {fileID: 5027430926185467886, guid: c36647343c8c367438db04654c4a6c73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,65 +188,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: DrillBoat
       objectReference: {fileID: 0}
-    - target: {fileID: 7064021244535388208, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064021244535388208, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064021244535388208, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 1.7832576
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064021244535388208, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -2.8135796
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064021244535388208, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.7877235
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064021244535388208, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064021244535388208, guid: c36647343c8c367438db04654c4a6c73,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.501015
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c36647343c8c367438db04654c4a6c73, type: 3}
---- !u!1 &5027430925770730240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2920928832301339058, guid: c36647343c8c367438db04654c4a6c73,
-    type: 3}
-  m_PrefabInstance: {fileID: 5027430925770730239}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5027430925770730241
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5027430925770730240}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 90c27e530fbbc4698aea596ed299e14b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
