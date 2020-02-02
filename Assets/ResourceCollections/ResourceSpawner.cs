@@ -58,7 +58,7 @@ public class ResourceSpawner : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        float randomValueX = Random.Range(-1 * offscreenDistance - 2f, offscreenDistance + 2f);
+        float randomValueX = Random.Range(-2 * offscreenDistance, 2f * offscreenDistance);
         float randomValueY = Random.Range(-offscreenDistance, -offscreenDistance - 2f);
 
         Vector3 pos = new Vector3(randomValueX, randomValueY, 0);
