@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GlobalShipStatus : MonoBehaviour
 {
     [SerializeField] private ShipMaxValues shipMaxValues;
+    [SerializeField] private Text shipHPText;
     private int shipHP;
     private int currentScore;
     private float tickTime = 1f; // 1 tick each second. 0.5 means 2 ticks per second
@@ -42,6 +44,7 @@ public class GlobalShipStatus : MonoBehaviour
         int damageFromRepairables = GetShipDamageFromRepairableObjects();
 
         shipHP -= damageFromRepairables;
+        UpdateShipUI();
     }
 
     private void UpdateHighscore()
@@ -65,5 +68,13 @@ public class GlobalShipStatus : MonoBehaviour
         }
 
         return allDamage;
+    }
+
+    private void UpdateShipUI()
+    {
+        if (shipHPText != null)
+        {
+            shipHPText.text = "ShipHP: " + shipHP;
+        }
     }
 }
