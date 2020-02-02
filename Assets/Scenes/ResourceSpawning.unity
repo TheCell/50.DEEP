@@ -287,6 +287,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 12ea78833a2974fc1866d645a19df68b,
         type: 3}
+    - target: {fileID: 4473617437259980267, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6644210131337261254, guid: 895423dc8ef59418988e0b08befb8bef,
+        type: 3}
+    - target: {fileID: 4473617437259980269, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: animController.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473617437259980269, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: animController.Array.data[0]
+      value: 
+      objectReference: {fileID: 9100000, guid: 20de92628df174768b6efc9c4e1a6f17, type: 2}
+    - target: {fileID: 4473617437259980269, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: characterSelection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473617437259980269, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: animController.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 42d5d149a10a845a4800b6ebafb68e94, type: 2}
+    - target: {fileID: 4473617437259980269, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: animController.Array.data[2]
+      value: 
+      objectReference: {fileID: 9100000, guid: e7aa77072e22148c39f8188ecd2c50c9, type: 2}
+    - target: {fileID: 4473617437259980269, guid: c36647343c8c367438db04654c4a6c73,
+        type: 3}
+      propertyPath: animController.Array.data[3]
+      value: 
+      objectReference: {fileID: 9100000, guid: 19c38a78d6de24968b2cc6ced861d7fc, type: 2}
     - target: {fileID: 5027430926185467886, guid: c36647343c8c367438db04654c4a6c73,
         type: 3}
       propertyPath: m_LocalPosition.x

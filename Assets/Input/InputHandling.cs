@@ -8,6 +8,11 @@ public class InputHandling : MonoBehaviour
     public float movespeed = 1.5f;
     public float jumpForce = 3f;
     public bool isGrounded = false;
+    [Range(1,4)]
+    public int characterSelection;
+    public RuntimeAnimatorController[] animController;
+    private Animator animator;
+
     // see https://www.youtube.com/watch?v=Pzd8NhcRzVo
     // and https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html
 
@@ -16,12 +21,18 @@ public class InputHandling : MonoBehaviour
         /*
         Debug.Log(Gamepad.all);
         Debug.Log(Keyboard.all);
-        */ 
+        */
+
+        animator = GetComponent<Animator>();
+        animator.runtimeAnimatorController = animController[characterSelection - 1];
     }
      
     private void Update()
     {
         HandleInput();
+
+        if (animator.runtimeAnimatorController != animController[characterSelection - 1]) animator.runtimeAnimatorController = animController[characterSelection - 1];
+
     }
 
     private void Awake()
@@ -61,7 +72,23 @@ public class InputHandling : MonoBehaviour
     private void OnMove(Vector2 value)
     {
         moveInput = value;
-            
+
+        if(value.x != 0)
+        {
+            animator.SetBool("isWalking", true);
+            if(value.x < 0)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 
     private void OnEnable()
