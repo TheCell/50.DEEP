@@ -13,6 +13,7 @@ public class DrillController : MonoBehaviour
 
     private Vector2 direction = Vector2.down;
     private Rigidbody2D rb;
+    private int sugarAmount = 100;
 
     private void Start()
     {
@@ -22,7 +23,10 @@ public class DrillController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.position = (Vector2)this.transform.position + direction.normalized * Time.fixedDeltaTime;
+        if(sugarAmount > 0)
+        {
+            this.transform.position = (Vector2)this.transform.position + direction.normalized * Time.fixedDeltaTime;
+        }
     }
 
     private void Update()
@@ -39,6 +43,20 @@ public class DrillController : MonoBehaviour
         Physics2D.gravity = newGravity;
         // Debug.DrawLine(transform.position, Physics2D.gravity * 2);
         // Debug.Log(Physics2D.gravity);
+    }
+
+    IEnumerator BurnSugar()
+    {
+        while (true)
+        {
+            sugarAmount -= 1;
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    public void AddSugar(int amount)
+    {
+        sugarAmount += amount;
     }
 
     public void Steer(float dir)
