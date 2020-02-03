@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerCharge : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer sleepySprite;
-    private InputManager controls;
+    //private InputManager controls;
     public float maxbatteryCharge = 100f;
     public float batteryCharge;
     //public Text chargeText;
@@ -56,7 +56,7 @@ public class PlayerCharge : MonoBehaviour
         }
     }
 
-    void Interact()
+    void OnInteract()
     {
         if (isCharging)
         {
@@ -68,11 +68,11 @@ public class PlayerCharge : MonoBehaviour
     {
         Debug.Log(batteryCharge);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<InputHandling>().enabled = false;
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
         charger.GetComponent<Animator>().SetBool("isRecharging", true);
         audioSource.PlayOneShot(sleep);
         yield return new WaitForSeconds(3.5f);
-        gameObject.GetComponent<InputHandling>().enabled = true;
+        gameObject.GetComponent<PlayerMovement>().enabled = true;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         charger.GetComponent<Animator>().SetBool("isRecharging", false);
         batteryCharge = maxbatteryCharge;
@@ -81,21 +81,21 @@ public class PlayerCharge : MonoBehaviour
     }
 
 
-    private void Awake()
-    {
-        controls = new InputManager();
-        controls.Player.Interact.performed += ctx => Interact();
-    }
+    //private void Awake()
+    //{
+    //    controls = new InputManager();
+    //    controls.Player.Interact.performed += ctx => Interact();
+    //}
 
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    controls.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    controls.Disable();
+    //}
 
     private void DisplaySleepyness()
     {

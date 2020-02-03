@@ -23,7 +23,7 @@ public class Grounded : MonoBehaviour
     {
         if(collision.CompareTag("Ground"))
         {
-            Player.GetComponent<InputHandling>().isGrounded = true;
+            Player.GetComponent<PlayerMovement>().isGrounded = true;
         }
     }
 
@@ -31,8 +31,8 @@ public class Grounded : MonoBehaviour
     {
         if(collision.CompareTag("Ground"))
         {
-            Player.GetComponent<InputHandling>().isGrounded = true;
-            Player.GetComponent<InputHandling>().PlayLandingSound();
+            Player.GetComponent<PlayerMovement>().isGrounded = true;
+            Player.GetComponent<PlayerMovement>().PlayLandingSound();
         }
     }
 
@@ -41,7 +41,7 @@ public class Grounded : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
         {
-            Player.GetComponent<InputHandling>().isGrounded = false;
+            Player.GetComponent<PlayerMovement>().isGrounded = false;
         }
     }
 }

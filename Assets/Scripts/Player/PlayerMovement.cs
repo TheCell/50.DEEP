@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputHandling : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    private InputManager controls;
+    //private InputManager controls;
     private Vector2 moveInput;
-    public float movespeed = 1.5f;
+    public float movespeed = 2f;
     public float jumpForce = 3f;
     public bool isGrounded = false;
     [Range(1,4)]
@@ -23,10 +23,8 @@ public class InputHandling : MonoBehaviour
 
     private void Start()
     {
-        /*
-        Debug.Log(Gamepad.all);
-        Debug.Log(Keyboard.all);
-        */
+        // Move Player to top right at start
+        gameObject.transform.position = new Vector2(1, 3);
 
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animController[characterSelection - 1];
@@ -36,7 +34,7 @@ public class InputHandling : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
+        Move();
 
         if (animator.runtimeAnimatorController != animController[characterSelection - 1]) animator.runtimeAnimatorController = animController[characterSelection - 1];
 
@@ -44,22 +42,16 @@ public class InputHandling : MonoBehaviour
 
     private void Awake()
     {
-        controls = new InputManager();
-        controls.Player.Jump.performed += ctx => Jump();
-        controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
-        //controls.Player.Interact.performed += ctx => Interact();
+        //controls = new InputManager();
+        //controls.Player.Jump.performed += ctx => Jump();
+        //controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
     }
 
-    private void HandleInput()
+    private void Move()
     {
-        /*
-        // this is the alternative way
-        Debug.Log(Gamepad.current.leftStick.ReadValue());
-        moveInput = Gamepad.current.leftStick.ReadValue();
-        */
-        float currentMovespeed = movespeed * (gameObject.GetComponent<PlayerCharge>().batteryCharge * 0.01f) + 0.5f;
+        float currentMovespeed = movespeed * (gameObject.GetComponent<PlayerCharge>().batteryCharge * 0.01f) + 1f;
         Vector3 pos = gameObject.transform.position;
-        pos.x += moveInput.x * Time.deltaTime * movespeed * currentMovespeed;
+        pos.x += moveInput.x * Time.deltaTime * currentMovespeed;
         gameObject.transform.position = pos;
        
     }
@@ -69,7 +61,7 @@ public class InputHandling : MonoBehaviour
         audioSource.PlayOneShot(landSound);
     }
 
-    private void Jump()
+    void OnJump()
     {
         // Debug.Log("Jumped");
         if (isGrounded)
@@ -82,14 +74,14 @@ public class InputHandling : MonoBehaviour
         
     }
 
-    private void OnMove(Vector2 value)
+    void OnMove(InputValue value)
     {
-        moveInput = value;
+        moveInput = value.Get<Vector2>();
 
-        if(value.x != 0)
+        if(moveInput.x != 0)
         {
             animator.SetBool("isWalking", true);
-            if(value.x < 0)
+            if(moveInput.x < 0)
             {
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
@@ -106,13 +98,13 @@ public class InputHandling : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    controls.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    controls.Disable();
+    //}
 }

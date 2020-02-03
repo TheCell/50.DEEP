@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    private InputManager controls;
+    //private InputManager controls;
     public GameObject interactableObject = null;
     private AudioSource audioSource;
     public AudioClip shortcut;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -45,16 +50,16 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<InputHandling>().enabled = false;
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
         audioSource.PlayOneShot(shortcut);
         yield return new WaitForSeconds(2.0f);
         gameObject.transform.position = exitVent.transform.position;
-        gameObject.GetComponent<InputHandling>().enabled = true;
+        gameObject.GetComponent<PlayerMovement>().enabled = true;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
 
     }
 
-    void Interact()
+    void OnInteract()
     {
         if (interactableObject)
         {
@@ -70,24 +75,19 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    //private void Awake()
+    //{
+    //    controls = new InputManager();
+    //    controls.Player.Interact.performed += ctx => Interact();
+    //}
 
-    private void Awake()
-    {
-        controls = new InputManager();
-        controls.Player.Interact.performed += ctx => Interact();
-    }
+    //private void OnEnable()
+    //{
+    //    controls.Enable();
+    //}
 
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    controls.Disable();
+    //}
 }
