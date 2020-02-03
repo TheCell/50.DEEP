@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //private InputManager controls;
     private Vector2 moveInput;
     public float movespeed = 2f;
     public float jumpForce = 3f;
@@ -18,13 +17,15 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip landSound;
 
-    // see https://www.youtube.com/watch?v=Pzd8NhcRzVo
+    // see https://www.youtube.com/watch?v=b-QhFPC5a6I
     // and https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html
 
     private void Start()
     {
-        // Move Player to top right at start
-        gameObject.transform.position = new Vector2(1, 3);
+        // Spawn player as child of Boat and Move Player to top right at start
+        GameObject parentObject = GameObject.FindGameObjectWithTag("Boat");
+        gameObject.transform.parent = parentObject.transform;
+        gameObject.transform.position = parentObject.transform.position + new Vector3(1, 3, 0);
 
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animController[characterSelection - 1];
@@ -38,13 +39,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (animator.runtimeAnimatorController != animController[characterSelection - 1]) animator.runtimeAnimatorController = animController[characterSelection - 1];
 
-    }
-
-    private void Awake()
-    {
-        //controls = new InputManager();
-        //controls.Player.Jump.performed += ctx => Jump();
-        //controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
     }
 
     private void Move()
@@ -97,14 +91,4 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Stop();
         }
     }
-
-    //private void OnEnable()
-    //{
-    //    controls.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    controls.Disable();
-    //}
 }

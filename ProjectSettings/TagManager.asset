@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Charger
   - Vent
+  - Boat
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: RepairAnimations
+    uniqueID: 1528394799
     locked: 0
   - name: Player
     uniqueID: 1280282971

@@ -5266,7 +5266,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1751887759
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2ba948045ca5843499baea8a11f42d3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5969,7 +5969,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1280282971
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dcab457313eb549768e70cbf9591c188, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6231,7 +6231,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1280282971
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dcab457313eb549768e70cbf9591c188, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6825,9 +6825,10 @@ GameObject:
   - component: {fileID: 5027430926185467883}
   - component: {fileID: 780186919}
   - component: {fileID: 1549077685}
+  - component: {fileID: 903137798}
   m_Layer: 8
   m_Name: DrillBoat
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7079,6 +7080,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &903137798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027430926185467888}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e7d2b8b023fd40a6b3f25d38072d1a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5190425482286963867
 GameObject:
   m_ObjectHideFlags: 0
@@ -7356,12 +7376,12 @@ PrefabInstance:
     - target: {fileID: 2579339311126519573, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: 1528394799
       objectReference: {fileID: 0}
     - target: {fileID: 2579339311126519573, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2579339311126519574, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
@@ -7820,12 +7840,12 @@ PrefabInstance:
     - target: {fileID: 2579339311126519573, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: 1528394799
       objectReference: {fileID: 0}
     - target: {fileID: 2579339311126519573, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2579339311126519574, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
@@ -7949,12 +7969,12 @@ PrefabInstance:
     - target: {fileID: 2579339311126519573, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: 1528394799
       objectReference: {fileID: 0}
     - target: {fileID: 2579339311126519573, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2579339311126519574, guid: dea6e082fac4f824089bd17c4b273a15,
         type: 3}

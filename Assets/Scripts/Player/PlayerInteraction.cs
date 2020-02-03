@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    //private InputManager controls;
     public GameObject interactableObject = null;
     private AudioSource audioSource;
     public AudioClip shortcut;
@@ -18,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (other.CompareTag("Interactable") || other.CompareTag("Vent"))
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             interactableObject = other.gameObject;
         }
     }
@@ -74,20 +73,4 @@ public class PlayerInteraction : MonoBehaviour
 
         }
     }
-
-    //private void Awake()
-    //{
-    //    controls = new InputManager();
-    //    controls.Player.Interact.performed += ctx => Interact();
-    //}
-
-    //private void OnEnable()
-    //{
-    //    controls.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    controls.Disable();
-    //}
 }

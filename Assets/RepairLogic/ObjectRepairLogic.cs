@@ -4,11 +4,9 @@ using UnityEngine.InputSystem;
 public class ObjectRepairLogic : MonoBehaviour
 {
     [SerializeField] private ResourceType typeOfResourceForRepair;
-    //[SerializeField] private Sprite[] sprites;
     [SerializeField] private float minimumTimeBetweenDamage = 5f;
     [SerializeField] private float maximumTimeBetweenDamage = 15f;
     private DrillResources currentObjectResource;
-    //private SpriteRenderer spriteRenderer;
     private float nextDamageTime;
 
     public bool DoesDamage()
@@ -40,7 +38,6 @@ public class ObjectRepairLogic : MonoBehaviour
     private void Start()
     {
         currentObjectResource = new DrillResources();
-        //spriteRenderer = GetComponent<SpriteRenderer>();
 
         switch(typeOfResourceForRepair)
         {
@@ -198,23 +195,6 @@ public class ObjectRepairLogic : MonoBehaviour
         {
             Debug.LogError("no Animator");
         }
-
-        //if (currentAmount > 80)
-        //{
-        //    spriteRenderer.sprite = sprites[0];
-        //}
-        //else if (currentAmount > 60)
-        //{
-        //    spriteRenderer.sprite = sprites[1];
-        //}
-        //else if (currentAmount > 0)
-        //{
-        //    spriteRenderer.sprite = sprites[2];
-        //}
-        //else
-        //{
-        //    spriteRenderer.sprite = sprites[3];
-        //}
     }
 
     private void GetDamaged()

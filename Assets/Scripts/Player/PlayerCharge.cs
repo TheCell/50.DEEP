@@ -6,10 +6,8 @@ using UnityEngine.UI;
 public class PlayerCharge : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer sleepySprite;
-    //private InputManager controls;
     public float maxbatteryCharge = 100f;
     public float batteryCharge;
-    //public Text chargeText;
     private bool isCharging = false;
     public float regenAmount = 1.0f;
     public float decreasingAmount = 1.0f;
@@ -33,9 +31,6 @@ public class PlayerCharge : MonoBehaviour
         }
 
         DisplaySleepyness();
-        //Debug.Log(batteryCharge);
-        //chargeText.text = batteryCharge.ToString();
-
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -66,7 +61,7 @@ public class PlayerCharge : MonoBehaviour
 
     IEnumerator Charging()
     {
-        Debug.Log(batteryCharge);
+        //Debug.Log(batteryCharge);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         charger.GetComponent<Animator>().SetBool("isRecharging", true);
@@ -76,26 +71,9 @@ public class PlayerCharge : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         charger.GetComponent<Animator>().SetBool("isRecharging", false);
         batteryCharge = maxbatteryCharge;
-        Debug.Log(batteryCharge);
+        //Debug.Log(batteryCharge);
 
     }
-
-
-    //private void Awake()
-    //{
-    //    controls = new InputManager();
-    //    controls.Player.Interact.performed += ctx => Interact();
-    //}
-
-    //private void OnEnable()
-    //{
-    //    controls.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    controls.Disable();
-    //}
 
     private void DisplaySleepyness()
     {

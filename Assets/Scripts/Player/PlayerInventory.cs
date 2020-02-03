@@ -18,8 +18,8 @@ public class PlayerInventory: MonoBehaviour
 
         Withdraw(dr, type);
 
-        Debug.Log(dr.Antrieb + " " + dr.Baumaterial + " " + dr.Wasser);
-        Debug.Log(DrillController.dr.Antrieb + " " + DrillController.dr.Baumaterial + " " + DrillController.dr.Wasser);
+        //Debug.Log(dr.Antrieb + " " + dr.Baumaterial + " " + dr.Wasser);
+        //Debug.Log(DrillController.dr.Antrieb + " " + DrillController.dr.Baumaterial + " " + DrillController.dr.Wasser);
     }
 
     public void RemoveItem(GameObject other)
@@ -27,7 +27,7 @@ public class PlayerInventory: MonoBehaviour
 
         dr = other.GetComponent<ObjectRepairLogic>().Repair(dr);
 
-        Debug.Log(dr.Antrieb + " " + dr.Baumaterial + " " + dr.Wasser);
+        //Debug.Log(dr.Antrieb + " " + dr.Baumaterial + " " + dr.Wasser);
     }
 
 
